@@ -33,6 +33,16 @@ RSpec.describe Vindi::Client::Period do
     end
   end
 
+  describe 'list_period_usages' do
+    it 'returns a list of usages from a period' do
+      VCR.use_cassette("rest/periods/list_period_usages") do
+        period_response = client.list_period_usages(1334849)
+        assert_requested :get, vindi_url("periods/1334849/usages")
+        expect(period_response).to be_kind_of(Array)
+      end
+    end
+  end
+
   describe 'update_period' do
     it 'returns the updated period' do
       VCR.use_cassette("rest/periods/update_period") do
