@@ -1,5 +1,7 @@
 # Notas das versões
 
+## [v0.0.7 - 01/11/2019](https://github.com/vindi/vindi-ruby/releases/tag/v0.0.7)
+- Adiciona endpoint de registros de utilização por período
 
 ## [v0.0.6 - 11/09/2019](https://github.com/vindi/vindi-ruby/releases/tag/v0.0.6)
 - Adiciona endpoint de lotes de exportação
