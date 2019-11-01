@@ -25,6 +25,17 @@ module Vindi
         get("periods/#{period_id}", options)[:period]
       end
 
+      # Get a single period from a merchant
+      #
+      # @param period_id [Integer] ID of the period
+      # @return [Hash] The period you requested, if it exists
+      # @see https://vindi.github.io/api-docs/dist/#!/periods/GET_version_periods_id_usages_format
+      # @example Get usages of period #2 from vindi
+      #   client.list_period_usages(2)
+      def list_period_usages(period_id, options = {})
+        get("periods/#{period_id}/usages", options)[:usages]
+      end
+
       # Create a period for a merchant vindi
       # 
       # @option options [Hash] :options period attributes
