@@ -1,5 +1,6 @@
 require 'faraday'
 require 'json'
+require 'uri'
 begin
   require 'faraday/multipart'
 rescue LoadError
@@ -16,9 +17,9 @@ module Vindi
         http.headers['Content-Type'] = 'application/json'
         http.request(:multipart)
         http.request(:url_encoded)
-        http.set_basic_auth(@key, '')
-        http.builder.use @middleware
-        http.adapter(Faraday.default_adapter)
+        http.request :authorization, :basic, @key, ''
+        http.use @middleware if @middleware
+        http.adapter :net_http
       end
     end
 
