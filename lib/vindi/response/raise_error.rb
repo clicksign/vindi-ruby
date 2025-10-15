@@ -5,7 +5,7 @@ module Vindi
   module Response
 
     # This class raises exceptions based HTTP status codes retuned by the API
-    class RaiseError < Faraday::Middleware
+    class RaiseError < Faraday::Response::Middleware
 
       def on_complete(response)
         error = Vindi::Error.from_response(response)
